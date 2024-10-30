@@ -1,13 +1,11 @@
 function decrypt(message) {
 
     const mapping = {
-        '^': 'p',
+        '*': 'p',
         '}': 'q',
-        '-': 'c',
         '!': 'j',
         ';': 'f',
         '^': 'm',
-        '*': 'l',
         '{': 's',
         '/': 'l',
         '¡': 'd',
@@ -36,10 +34,11 @@ function decrypt(message) {
     return decryptMessage;
 }
 
-const encryptedMessage = "^[()~^*/?[()^+-~()#[$()/~()%\\\\[]()}+[()[{=~¿()=$?%?!?]¡~()¿()¬^~()[{=()?+^[]=?()^\\\\{()*¡[$[{()¡[()?=[]\\\\¬]()¿()[{;+[$__~()~]=\\\\]+~";
+const encryptedMessage = "^[()'~^*/?'[()^+'-~()#[$()/~()%\\[]()}+[()[{=~¿()=$?%?!?]¡~()¿()'¬^~()[{=~()?+^[]=?()^\\{()*~¡[$[{()¡[()?=[]'\\¬]()¿()[{;+[$__~()'~]=\\]+~";
 const replaceMessage = encryptedMessage    
     .replace(/\(\)/g, ' ')
     .replace(/__/g, 'z')      
-    .replace(/\\\\/g, 'i')
+    .replace(/\\/g, 'i')
+    .replace(/'/g, 'c')
 const decryptMessage = decrypt(replaceMessage);
 console.log(decryptMessage);
